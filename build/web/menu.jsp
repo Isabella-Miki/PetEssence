@@ -1,6 +1,8 @@
 <aside>
 
-    <ul class="nav flex-column nav-pills >
+    <ul class="nav nav-pills >
+        <li class="nav-item align-items-center"><p>PetEssence</p></li>
+        
         <li class="nav-item">
         <a class="nav-link" href="#">Home</a>
         </li>

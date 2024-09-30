@@ -6,8 +6,8 @@
 
 <div align="center" class="container">
     <h2>Especie</h2>
+    <a href="${pageContext.request.contextPath}/EspecieNovo" class="btn btn-primary text-light"> Cadastrar Especie</a>
 
-<a href="${pageContext.request.contextPath}/EspecieNovo" align="center"> Cadastrar Especie</a>
 
 <table id="datatable" class="display">
     <thead>
@@ -41,6 +41,10 @@
 <div align="center">
     <a href="index.jsp">Voltar à página inicial </a>
 </div>
+
+
+
+
 </div>
 
 

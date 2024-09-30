@@ -3,6 +3,5 @@
 <%@page contentType="text/html" pageEncoding="iso-8859-1" %>
 <jsp:include page="header.jsp"/>
 <jsp:include page="menu.jsp"/>
-
 <h1>Pet Essence</h1>
 <jsp:include page="footer.jsp"/>
