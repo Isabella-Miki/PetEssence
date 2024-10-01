@@ -24,14 +24,34 @@
         <!-- Mensagem alerta -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.3.1/dist/sweetalert2.all.min.js" type="text/javascript">
         </script>
-        
+
         <style>
             footer {
                 background-color: #29C28D;
             }
-            
+
             .container {
                 padding: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .main-wrapper {
+                min-height: 100vh;
+            }
+
+            .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+                background-color: #29C28D !important;
+                border-color: #29C28D;
+                transition: none;
+                color: #fff;
+            }
+
+            .navbar {
+                color: #fff !important;
+                background-color: #29C28D !important;
             }
         </style>
     </head>

@@ -4,55 +4,45 @@
 <jsp:include page="/header.jsp"/>
 <jsp:include page="/menu.jsp"/>
 
-<div align="center" class="container">
-    <h2>Especie</h2>
-    <a href="${pageContext.request.contextPath}/EspecieNovo" class="btn btn-primary text-light"> Cadastrar Especie</a>
+<div class="main-wrapper p-5">
+    <h2 class="text-center">Espécie</h2>
+    <div class="d-flex flex-row-reverse bd-highlight mb-3">
+        <a href="${pageContext.request.contextPath}/EspecieNovo" class="btn btn-primary my-3"> Cadastrar Espécie</a>
+    </div>
 
-
-<table id="datatable" class="display">
-    <thead>
-        <tr>
-            <th align="left">ID</th>
-            <th align="left">Nome</th>
-            <th align="right"></th>
-            <th align="right"></th>
-        </tr>    
-    </thead>
-    <tbody>
-        <c:forEach var="especie" items="${especie}">
+    <table class="table" id="datatable">
+        <thead class="thead-light">
             <tr>
-                <td align="left">${especie.idEspecie}</td>
-                <td align="left">${especie.nomeEspecie}</td>
-                <td align="center">
-                    <a href="${pageContext.request.contextPath}/EspecieExcluir?idEspecie=${especie.idEspecie}">
-                        Excluir
-                    </a>
-                </td>
-                <td align="center">
-                    <a href="${pageContext.request.contextPath}/EspecieCarregar?idEspecie=${especie.idEspecie}">
-                        Alterar 
-                    </a>
-                </td>
+                <th scope="col" class="w-25">ID</th>
+                <th scope="col" class="w-50">Nome</th>
+                <th scope="col" class="w-25 text-center">Ações</th>
             </tr>
-        </c:forEach>
-    </tbody>
-
-</table>
-<div align="center">
-    <a href="index.jsp">Voltar à página inicial </a>
+        </thead>
+        <tbody>
+            <c:forEach var="especie" items="${especie}">
+                <tr>
+                    <td align="left">${especie.idEspecie}</td>
+                    <td align="left">${especie.nomeEspecie}</td>
+                    <td align="center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/EspecieCarregar?idEspecie=${especie.idEspecie}">Alterar</a>
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/EspecieExcluir?idEspecie=${especie.idEspecie}">Deletar</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </c:forEach>    
+        </tbody>
+    </table>
+    
 </div>
-
-
-
-
-</div>
-
-
-
 
 <script>
     $(document).ready(function () {
-        console.log('entrei ready');
         $('#datatable').DataTable({
             "oLanguage": {
                 "sProcessing": "Processando...",

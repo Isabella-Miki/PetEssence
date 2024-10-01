@@ -3,44 +3,23 @@
 <jsp:include page="/header.jsp"/>
 <jsp:include page="/menu.jsp"/>
 
-<form name="cadastrarespecie" action="EspecieCadastrar" method="POST">
-    <table algin="center" border="0">
-        <thead>
-            <tr>
-                <th colspan="2" align="center">Cadastro de Especie</th>
-            </tr>
-            <tr>
-                <th colspan="2" align="center">${mensagem}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>ID: </td>
-                <td><input type="text" name="idespecie" id="idespecie" value="${especie.idEspecie}" readonly="readonly" /> </td>
-            </tr>
+<div class="container"> 
+    <form name="cadastrarespecie" action="EspecieCadastrar" method="POST" class="flex-column">
+        <h2 align="center">Cadastro de Espécie</h2>
 
-            <tr>
-                <td>Nome: </td>
-                <td><input type="text" name="nomeespecie" id="nomeespecie" value="${especie.nomeEspecie}" size="50" maxlength="50" /> </td>
-            </tr>
+        <div class="form-group mt-3">
+            <label for="idespecie">ID: </label>
+            <input type="text" name="idespecie" id="idespecie" value="${especie.idEspecie}" readonly="readonly" class="form-control" />
+        </div>
+        <div class="form-group">
 
-            <tr>
-                <td colspan="2" align="center">
-                    <input type="submit" name="cadastrar" id="cadastrar" value="Cadastrar"/>
-                    <input type="reset" name="limpar" id="limpar" value="Limpar" />
-                    
-                </td>
-            </tr>
-            <tr>
-                <td align="center" colspan="2">
-                            <h5><a href="index.jsp">
-                        Voltar a home
-                        </a></h5>
-                </td>
-            </tr>
-            
-        </tbody>
-    </table>
-</form>
+            <label for="nomespecie">Nome: </label>
+            <input type="text" name="nomeespecie" id="nomeespecie" value="${especie.nomeEspecie}" size="50" maxlength="50" class="form-control" />
+        </div>
 
-<%@ include file="/footer.jsp" %>
+        <div class="d-flex justify-content-between"> 
+            <a href="index.jsp" class="btn btn-secondary"> Voltar</a>
+            <input type="submit" name="cadastrar" id="cadastrar" value="Cadastrar" class="btn btn-primary"/>
+        </div>
+    </form>
+</div>
