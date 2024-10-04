@@ -13,17 +13,17 @@
     <table class="table" id="datatable">
         <thead class="thead-light">
             <tr>
-                <th scope="col" class="w-25">ID</th>
-                <th scope="col" class="w-50">Nome</th>
+                <th scope="col" class="w-25 text-center">ID</th>
+                <th scope="col" class="w-50 text-center">Nome</th>
                 <th scope="col" class="w-25 text-center">Ações</th>
             </tr>
         </thead>
         <tbody>
             <c:forEach var="especie" items="${especie}">
                 <tr>
-                    <td align="left">${especie.idEspecie}</td>
-                    <td align="left">${especie.nomeEspecie}</td>
-                    <td align="center">
+                    <td class="text-center align-middle">${especie.idEspecie}</td>
+                    <td class="text-center align-middle">${especie.nomeEspecie}</td>
+                    <td class="text-center align-middle">
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 
