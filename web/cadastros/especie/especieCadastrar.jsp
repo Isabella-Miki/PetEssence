@@ -6,11 +6,12 @@
 <div class="container"> 
     <form name="cadastrarespecie" action="EspecieCadastrar" method="POST" class="flex-column">
         <h2 align="center">Cadastro de Espécie</h2>
-
-        <div class="form-group mt-3">
-            <label for="idespecie">ID: </label>
-            <input type="text" name="idespecie" id="idespecie" value="${especie.idEspecie}" readonly="readonly" class="form-control" />
-        </div>
+        <c:if test="${especie.idEspecie != 0}">
+            <div class="form-group mt-3">
+                <label for="idespecie">ID: </label>
+                <input type="text" name="idespecie" id="idespecie" value="${especie.idEspecie}" readonly="readonly" class="form-control" />
+            </div>
+        </c:if>
         <div class="form-group">
 
             <label for="nomespecie">Nome: </label>
@@ -18,7 +19,7 @@
         </div>
 
         <div class="d-flex justify-content-between"> 
-            <a href="index.jsp" class="btn btn-secondary"> Voltar</a>
+            <a href="EspecieListar" class="btn btn-secondary">Voltar</a>
             <input type="submit" name="cadastrar" id="cadastrar" value="Cadastrar" class="btn btn-primary"/>
         </div>
     </form>
