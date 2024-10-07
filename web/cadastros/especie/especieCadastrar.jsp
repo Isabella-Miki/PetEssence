@@ -14,7 +14,7 @@
         <div class="form-group">
 
             <label for="nomespecie">Nome: </label>
-            <input type="text" name="nomeespecie" id="nomeespecie" value="${especie.nomeEspecie}" size="50" maxlength="50" class="form-control" />
+            <input type="text" name="nomeespecie" id="nomeespecie" value="${especie.nomeEspecie}" size="50" maxlength="50" class="form-control" required/>
         </div>
 
         <div class="d-flex justify-content-between"> 
