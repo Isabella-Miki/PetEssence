@@ -1,6 +1,6 @@
 </body>
 
 <footer class="p-3">
-    <h5 class="text-light"> PetEssence </<h1>
+    <h6 class="text-light">PetEssence &copy; - Isabela Ribeiro & Isabella Miki</h6>
 </footer>
 </html>

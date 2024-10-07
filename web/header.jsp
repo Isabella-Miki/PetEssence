@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-        <title>JSP Page</title>
+        <title>PetEssence</title>
         <!-- JQuery -->
         <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mask.min.js"></script>
