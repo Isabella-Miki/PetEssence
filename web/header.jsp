@@ -26,20 +26,30 @@
         </script>
 
         <style>
+            body {
+                display: grid;
+                grid-template-columns: 0.15fr 1fr;
+                grid-template-rows: 0.10fr 1fr 0.1fr;
+                grid-template-areas: 
+                    "navbar navbar"
+                    "sidebar main"
+                    "footer footer";
+                min-height: 100vh;
+                min-width: 100vw;
+            }
+            
             footer {
                 background-color: #29C28D;
+                grid-area: footer;
             }
-
-            .container {
-                padding: 1rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-            }
-
+            
             .main-wrapper {
                 min-height: 100vh;
+                grid-area: main;
+            }
+            
+            .sidebar {
+                grid-area: sidebar;
             }
 
             .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
@@ -52,6 +62,7 @@
             .navbar {
                 color: #fff !important;
                 background-color: #29C28D !important;
+                grid-area: navbar;
             }
         </style>
     </head>

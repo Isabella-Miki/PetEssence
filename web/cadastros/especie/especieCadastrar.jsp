@@ -3,7 +3,7 @@
 <jsp:include page="/header.jsp"/>
 <jsp:include page="/menu.jsp"/>
 
-<div class="container"> 
+<div class="p-4 d-flex align-items-center justify-content-start flex-column"> 
     <form name="cadastrarespecie" action="EspecieCadastrar" method="POST" class="flex-column">
         <h2 align="center">Cadastro de Espécie</h2>
         <div class="form-group mt-3">
@@ -28,3 +28,5 @@
         </div>
     </form>
 </div>
+
+        

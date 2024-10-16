@@ -5,7 +5,7 @@
 <jsp:include page="/menu.jsp"/>
 
 <div class="main-wrapper p-5">
-    <h2 class="text-center">Espécie</h2>
+    <h2>Espécie</h2>
     <div class="d-flex flex-row-reverse bd-highlight mb-3">
         <a href="${pageContext.request.contextPath}/EspecieNovo" class="btn btn-primary my-3"> Cadastrar Espécie</a>
     </div>
@@ -25,8 +25,10 @@
                     <td class="text-center align-middle">${especie.nomeEspecie}</td>
                     <td class="text-center align-middle">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                
+                            <button type="button" class="btn btn-secondary rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                  <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                                </svg>                   
                             </button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="${pageContext.request.contextPath}/EspecieCarregar?idEspecie=${especie.idEspecie}">Alterar</a>
@@ -45,14 +47,14 @@
     $(document).ready(function () {
         $('#datatable').DataTable({
             "oLanguage": {
+                "sSearch": "Buscar: ",
                 "sProcessing": "Processando...",
-                "sLengthMenu": "Mostrar_MENU_registros",
+                "sLengthMenu": "Mostrar _MENU_ registros",
                 "sZeroRecords": "Nenhum registro encontrado.",
                 "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
                 "sInfoEmpty": "Mostrado de 0 até 0 de 0 registros",
                 "sInfoFiltred": "",
                 "sInfoPostFix": "",
-                "sSearch": "Buscar: ",
                 "sUrl": "",
                 "oPaginate": {
                     "sFirst": "Primeiro",
