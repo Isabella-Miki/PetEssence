@@ -6,12 +6,16 @@
 <div class="container"> 
     <form name="cadastrarespecie" action="EspecieCadastrar" method="POST" class="flex-column">
         <h2 align="center">Cadastro de Espécie</h2>
-        <c:if test="${especie.idEspecie != 0}">
-            <div class="form-group mt-3">
+        <div class="form-group mt-3">
+            <c:if test="${especie.idEspecie != 0}">
+
                 <label for="idespecie">ID: </label>
                 <input type="text" name="idespecie" id="idespecie" value="${especie.idEspecie}" readonly="readonly" class="form-control" />
-            </div>
-        </c:if>
+            </c:if>
+            <c:if test="${especie.idEspecie == 0}">
+                <input type="hidden" name="idespecie" id="idespecie" value="${especie.idEspecie}" readonly="readonly" class="form-control" />
+            </c:if>
+        </div>
         <div class="form-group">
 
             <label for="nomespecie">Nome: </label>
