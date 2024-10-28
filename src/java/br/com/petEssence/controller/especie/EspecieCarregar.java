@@ -21,7 +21,7 @@ public class EspecieCarregar extends HttpServlet {
             request.setAttribute("especie", dao.carregar(idEspecie));
             request.getRequestDispatcher("cadastros/especie/especieCadastrar.jsp").forward(request,response);
         } catch (Exception ex){
-            System.out.println("Erro no servelet de carregar! Erro " + ex.getMessage());
+            System.out.println("Erro no Servlet de carregar! Erro " + ex.getMessage());
             ex.printStackTrace();
         }
     }

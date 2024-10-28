@@ -64,6 +64,15 @@
                 background-color: #29C28D !important;
                 grid-area: navbar;
             }
+            
+            .dataTables_filter input {
+                border-radius: 4px;
+                border: 1px solid #4a4a4a;
+                padding: 5px 8px;
+                width: 210px;
+                background-color: #f8f9fa;
+            }
+    
         </style>
     </head>
     <body>
