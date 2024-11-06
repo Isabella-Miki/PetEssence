@@ -21,9 +21,9 @@ public class Raca {
         this.nomeRaca = nomeRaca;
     }
     
-    public Raca(int idEspecie, String nomeEspecie) {
-        this.idRaca = idEspecie;
-        this.nomeRaca = nomeEspecie;
+    public Raca(int idRaca, String nomeRaca) {
+        this.idRaca = idRaca;
+        this.nomeRaca = nomeRaca;
     }
 
     public Raca() {

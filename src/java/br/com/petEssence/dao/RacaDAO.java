@@ -29,7 +29,7 @@ public class RacaDAO implements GenericDAO {
     public Boolean inserir(Object objeto) {
         Raca aRaca = (Raca) objeto;
         PreparedStatement stmt = null;
-        String sql = "Insert into raca(nome) values (?)";
+        String sql = "insert into raca(nome) values (?)";
         
         try {
             stmt = conexao.prepareStatement(sql);
@@ -54,7 +54,7 @@ public class RacaDAO implements GenericDAO {
     public Boolean alterar(Object objeto) {
         Raca aRaca = (Raca) objeto;
         PreparedStatement stmt = null;
-        String sql = "Update raca set nome =? where id =?";
+        String sql = "update raca set nome =? where id =?";
         try {
             stmt = conexao.prepareStatement(sql);
             stmt.setString(1, aRaca.getNomeRaca());
@@ -79,7 +79,7 @@ public class RacaDAO implements GenericDAO {
     public Boolean excluir(int numero) {
         PreparedStatement stmt = null;
         int idRaca = numero;
-        String sql = "Delete from raca where id =?";
+        String sql = "delete from raca where id =?";
         try {
             stmt = conexao.prepareStatement(sql);
             stmt.setInt(1, idRaca);
@@ -102,7 +102,7 @@ public class RacaDAO implements GenericDAO {
     public Object carregar(int numero) {
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "Select * from raca where id =?";
+        String sql = "select * from raca where id =?";
         Raca aRaca = new Raca();
         try {
             stmt = conexao.prepareStatement(sql);
@@ -125,7 +125,7 @@ public class RacaDAO implements GenericDAO {
         List<Object> resultado = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "Select * from raca order by nome";
+        String sql = "select * from raca order by nome";
 
         try {
             stmt = conexao.prepareStatement(sql);
