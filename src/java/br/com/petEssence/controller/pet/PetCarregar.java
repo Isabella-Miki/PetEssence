@@ -1,7 +1,8 @@
-package br.com.petEssence.controller.especie;
+package br.com.petEssence.controller.pet;
 
 import br.com.petEssence.dao.EspecieDAO;
-import br.com.petEssence.dao.GenericDAO;
+import br.com.petEssence.dao.PetDAO;
+import br.com.petEssence.dao.RacaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -10,20 +11,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "EspecieExcluir", urlPatterns = {"/EspecieExcluir"})
-public class EspecieExcluir extends HttpServlet {
+@WebServlet(name = "PetCarregar", urlPatterns = {"/PetCarregar"})
+public class PetCarregar extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=iso-8859-1");
-        int idEspecie = Integer.parseInt(request.getParameter("idEspecie"));
+         response.setContentType("text/html;charset=iso-8859-1");
         try {
-            GenericDAO dao = new EspecieDAO();
-            dao.excluir(idEspecie);
-            response.sendRedirect("EspecieListar");
-        }catch (Exception ex) {
-           System.out.println("Problemas no Servlet ao excluir especie! Erro: "+ex.getMessage());
-            ex.printStackTrace(); 
+            int idPet = Integer.parseInt(request.getParameter("idPet"));
+            
+            PetDAO oPetDAO = new PetDAO();
+            request.setAttribute("pet", oPetDAO.carregar(idPet));
+            
+            EspecieDAO oEspecieDAO = new EspecieDAO();
+            request.setAttribute("especies", oEspecieDAO.listar());
+            
+            RacaDAO aRacaDAO = new RacaDAO();
+            request.setAttribute("racas", aRacaDAO.listar());
+            
+            request.getRequestDispatcher("/cadastros/pet/petCadastrar.jsp").forward(request, response);                        
+        } catch (Exception ex) {
+            System.out.println("Erro ao carregar pet: " + ex.getMessage());
+            ex.printStackTrace();
         }
     }
 

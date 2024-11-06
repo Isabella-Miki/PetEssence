@@ -12,7 +12,10 @@
         <a class="nav-link text-dark" href="${pageContext.request.contextPath}/EspecieListar">Espécie</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Raça</a>
+        <a class="nav-link text-dark" href="${pageContext.request.contextPath}/RacaListar">Raça</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link text-dark" href="${pageContext.request.contextPath}/PetListar">Pet</a>
       </li>
     </ul>
 </aside> 
