@@ -149,7 +149,7 @@ public class AtendimentoDAO implements GenericDAO {
                 oAtendimento.setNomeVeterinario(rs.getString("nomeveterinario"));
 
                 PetDAO oPetDAO = new PetDAO();
-                oAtendimento.setPet((Pet) oPetDAO.carregar(rs.getInt("id")));
+                oAtendimento.setPet((Pet) oPetDAO.carregar(rs.getInt("idpet")));
             }
             return oAtendimento;
         } catch (Exception ex) {
@@ -189,7 +189,6 @@ public class AtendimentoDAO implements GenericDAO {
                     ex.printStackTrace();
                 }
                 oAtendimento.setPet((Pet) oPetDAO.carregar(rs.getInt("idpet")));
-                System.out.println(oAtendimento.getPet());
                 resultado.add(oAtendimento);
             }
         } catch (SQLException ex) {
