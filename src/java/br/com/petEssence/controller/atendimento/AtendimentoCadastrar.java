@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AtendimentoCadastrar extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=iso-8859-1");
 
         int idAtendimento = Integer.parseInt(request.getParameter("idatendimento"));
@@ -34,17 +34,13 @@ public class AtendimentoCadastrar extends HttpServlet {
         Conversao oConversao = new Conversao();
 
         String descricao = request.getParameter("descricao");
-        try {
-            Date dataAtendimento = oConversao.converterData(request.getParameter(("dataatendimento")));
-        } catch (ParseException ex) {
-            System.out.println("Erro ao converter data! " + ex.getMessage());
-        }
+        Date dataAtendimento = oConversao.converterData(request.getParameter(("dataatendimento")));
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
 
         String horarioParam = request.getParameter("horario");
-        String duracaoParam = request.getParameter("duracao") ;
-        
-        String horarioStr = horarioParam .substring(0, 5);
+        String duracaoParam = request.getParameter("duracao");
+
+        String horarioStr = horarioParam.substring(0, 5);
         String duracaoStr = duracaoParam.substring(0, 5);
 
         LocalTime horario = LocalTime.parse(horarioStr, formatter);
@@ -65,6 +61,7 @@ public class AtendimentoCadastrar extends HttpServlet {
             oAtendimento.setHorario(horario);
             oAtendimento.setDuracao(duracao);
             oAtendimento.setValor(valor);
+            oAtendimento.setDataAtendimento(dataAtendimento);
             oAtendimento.setNomeVeterinario(nomeVeterinario);
             oAtendimento.setPet(new Pet(idPet, "", new Especie(), new Raca(), ""));
 
@@ -94,7 +91,11 @@ public class AtendimentoCadastrar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(AtendimentoCadastrar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -108,7 +109,11 @@ public class AtendimentoCadastrar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(AtendimentoCadastrar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
