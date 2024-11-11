@@ -13,10 +13,11 @@
     <table class="table" id="datatable">
         <thead class="thead-light">
             <tr>
-                <th scope="col" class="w-20 text-center">ID</th>
                 <th scope="col" class="w-20 text-center">Data</th>
                 <th scope="col" class="w-20 text-center">Horário</th>
                 <th scope="col" class="w-20 text-center">Descrição</th>
+                                <th scope="col" class="w-20 text-center">Valor</th>
+
                 <th scope="col" class="w-20 text-center">Pet</th>
                 <th scope="col" class="w-20 text-center">Ações</th>
             </tr>
@@ -24,10 +25,10 @@
         <tbody>
             <c:forEach var="atendimento" items="${atendimentos}">
                 <tr>
-                    <td class="text-center align-middle">${atendimento.idAtendimento}</td>
                     <td class="text-center align-middle">${atendimento.dataAtendimento}</td>
                     <td class="text-center align-middle">${atendimento.horario}</td>
                     <td class="text-center align-middle">${atendimento.descricao}</td>
+                    <td class="text-center align-middle">R$ ${atendimento.valor}</td>
                     <td class="text-center align-middle">${atendimento.pet.nomePet}</td>
 
                     <td class="text-center align-middle">
