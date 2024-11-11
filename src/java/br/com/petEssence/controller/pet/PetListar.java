@@ -3,7 +3,6 @@ package br.com.petEssence.controller.pet;
 import br.com.petEssence.dao.GenericDAO;
 import br.com.petEssence.dao.PetDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "PetListar", urlPatterns = {"/PetListar"})
 public class PetListar extends HttpServlet {
-
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

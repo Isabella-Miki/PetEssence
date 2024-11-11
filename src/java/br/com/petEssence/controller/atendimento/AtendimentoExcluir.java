@@ -1,37 +1,30 @@
-package br.com.petEssence.controller.pet;
+package br.com.petEssence.controller.atendimento;
 
-import br.com.petEssence.dao.EspecieDAO;
-import br.com.petEssence.dao.RacaDAO;
-import br.com.petEssence.model.Pet;
+import br.com.petEssence.dao.AtendimentoDAO;
+import br.com.petEssence.dao.GenericDAO;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet(name = "PetNovo", urlPatterns = {"/PetNovo"})
-public class PetNovo extends HttpServlet {
+@WebServlet(name = "AtendimentoExcluir", urlPatterns = {"/AtendimentoExcluir"})
+public class AtendimentoExcluir extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, Exception {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=iso-8859-1");
-        
-        Pet oPet = new Pet();
-        request.setAttribute("pet", oPet);
-        
-        EspecieDAO oEspecieDAO = new EspecieDAO();
-        request.setAttribute("especies", oEspecieDAO.listar());
-        
-        RacaDAO aRacaDAO = new RacaDAO();
-        request.setAttribute("racas", aRacaDAO.listar());
-        
-        request.getRequestDispatcher("/cadastros/pet/petCadastrar.jsp").forward(request, response);
+        int idAtendimento = Integer.parseInt(request.getParameter("idAtendimento"));
+        try {
+            GenericDAO dao = new AtendimentoDAO();
+            dao.excluir(idAtendimento);
+            response.sendRedirect("AtendimentoListar");
+        }catch (Exception ex) {
+           System.out.println("Problemas no Servlet ao excluir atendimento! Erro: "+ex.getMessage());
+            ex.printStackTrace(); 
+        }
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -44,11 +37,7 @@ public class PetNovo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(PetNovo.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -62,11 +51,7 @@ public class PetNovo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(PetNovo.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

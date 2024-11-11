@@ -1,35 +1,34 @@
-package br.com.petEssence.controller.pet;
+package br.com.petEssence.controller.atendimento;
 
-import br.com.petEssence.dao.EspecieDAO;
-import br.com.petEssence.dao.RacaDAO;
-import br.com.petEssence.model.Pet;
+import br.com.petEssence.dao.AtendimentoDAO;
+import br.com.petEssence.dao.PetDAO;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet(name = "PetNovo", urlPatterns = {"/PetNovo"})
-public class PetNovo extends HttpServlet {
-
+@WebServlet(name = "AtendimentoCarregar", urlPatterns = {"/AtendimentoCarregar"})
+public class AtendimentoCarregar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, Exception {
-        response.setContentType("text/html;charset=iso-8859-1");
-        
-        Pet oPet = new Pet();
-        request.setAttribute("pet", oPet);
-        
-        EspecieDAO oEspecieDAO = new EspecieDAO();
-        request.setAttribute("especies", oEspecieDAO.listar());
-        
-        RacaDAO aRacaDAO = new RacaDAO();
-        request.setAttribute("racas", aRacaDAO.listar());
-        
-        request.getRequestDispatcher("/cadastros/pet/petCadastrar.jsp").forward(request, response);
+            throws ServletException, IOException {
+         response.setContentType("text/html;charset=iso-8859-1");
+        try {
+            int idAtendimento = Integer.parseInt(request.getParameter("idAtendimento"));
+            
+            AtendimentoDAO oAtendimentoDAO = new AtendimentoDAO();
+            request.setAttribute("atendimento", oAtendimentoDAO.carregar(idAtendimento));
+            
+            PetDAO oPetDAO = new PetDAO();
+            request.setAttribute("pets", oPetDAO.listar());
+            
+            request.getRequestDispatcher("/cadastros/atendimento/atendimentoCadastrar.jsp").forward(request, response);                        
+        } catch (Exception ex) {
+            System.out.println("Erro ao carregar atendimento: " + ex.getMessage());
+            ex.printStackTrace();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -44,11 +43,7 @@ public class PetNovo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(PetNovo.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -62,11 +57,7 @@ public class PetNovo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(PetNovo.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

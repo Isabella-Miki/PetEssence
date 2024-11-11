@@ -1,8 +1,7 @@
-package br.com.petEssence.controller.pet;
+package br.com.petEssence.controller.atendimento;
 
-import br.com.petEssence.dao.EspecieDAO;
-import br.com.petEssence.dao.RacaDAO;
-import br.com.petEssence.model.Pet;
+import br.com.petEssence.dao.PetDAO;
+import br.com.petEssence.model.Atendimento;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,24 +11,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet(name = "PetNovo", urlPatterns = {"/PetNovo"})
-public class PetNovo extends HttpServlet {
+@WebServlet(name = "AtendimentoNovo", urlPatterns = {"/AtendimentoNovo"})
+public class AtendimentoNovo extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=iso-8859-1");
         
-        Pet oPet = new Pet();
-        request.setAttribute("pet", oPet);
+        Atendimento oAtendimento = new Atendimento();
+        request.setAttribute("atendimento", oAtendimento);
         
-        EspecieDAO oEspecieDAO = new EspecieDAO();
-        request.setAttribute("especies", oEspecieDAO.listar());
+        PetDAO oPetDAO = new PetDAO();
         
-        RacaDAO aRacaDAO = new RacaDAO();
-        request.setAttribute("racas", aRacaDAO.listar());
+        request.setAttribute("pets", oPetDAO.listar());
         
-        request.getRequestDispatcher("/cadastros/pet/petCadastrar.jsp").forward(request, response);
+        request.getRequestDispatcher("/cadastros/atendimento/atendimentoCadastrar.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -47,7 +43,7 @@ public class PetNovo extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(PetNovo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AtendimentoNovo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -65,7 +61,7 @@ public class PetNovo extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(PetNovo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AtendimentoNovo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
