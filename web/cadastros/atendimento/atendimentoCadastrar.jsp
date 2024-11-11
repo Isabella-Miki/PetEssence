@@ -19,12 +19,12 @@
         </div>
         <div class="form-group">
             <label for="descricao">Descrição: </label>
-            <input type="text" name="descricao" id="descricao" value="${atendimento.descricao}" size="200" maxlength="200" class="form-control"/>
+            <input type="text" name="descricao" id="descricao" value="${atendimento.descricao}" size="50" maxlength="50" class="form-control"/>
         </div>
 
         <div class="form-group">
             <label for="nomeveterinario">Nome do Veterinário: </label>
-            <input type="text" name="nomeveterinario" id="nomeveterinario" value="${atendimento.nomeVeterinario}" size="100" maxlength="100" class="form-control" required/>
+            <input type="text" name="nomeveterinario" id="nomeveterinario" value="${atendimento.nomeVeterinario}" size="50" maxlength="50" class="form-control" required/>
         </div>
 
         <div class="form-group">

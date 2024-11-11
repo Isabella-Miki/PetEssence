@@ -188,7 +188,8 @@ public class AtendimentoDAO implements GenericDAO {
                     System.out.println("Erro ao buscar o pet: " + ex.getMessage());
                     ex.printStackTrace();
                 }
-                oAtendimento.setPet((Pet) oPetDAO.carregar(rs.getInt("id")));
+                oAtendimento.setPet((Pet) oPetDAO.carregar(rs.getInt("idpet")));
+                System.out.println(oAtendimento.getPet());
                 resultado.add(oAtendimento);
             }
         } catch (SQLException ex) {
