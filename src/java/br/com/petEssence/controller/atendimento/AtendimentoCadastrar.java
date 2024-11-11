@@ -46,7 +46,7 @@ public class AtendimentoCadastrar extends HttpServlet {
         LocalTime horario = LocalTime.parse(horarioStr, formatter);
         LocalTime duracao = LocalTime.parse(duracaoStr, formatter);
 
-        double valor = oConversao.valorDinheiro(request.getParameter("valor"));
+        double valor = Double.parseDouble((request.getParameter("valor")));
         String nomeVeterinario = request.getParameter("nomeveterinario");
 
         String mensagem = null;
