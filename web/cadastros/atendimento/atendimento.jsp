@@ -25,7 +25,7 @@
         <tbody>
             <c:forEach var="atendimento" items="${atendimentos}">
                 <tr>
-                    <td class="text-center align-middle">${atendimento.dataAtendimento}</td>
+                    <td class="text-center align-middle"><fmt:formatDate pattern ="dd/MM/yyyy" value= "${atendimento.dataAtendimento}"/></td>
                     <td class="text-center align-middle">${atendimento.horario}</td>
                     <td class="text-center align-middle">${atendimento.descricao}</td>
                     <td class="text-center align-middle">R$ ${atendimento.valor}</td>
